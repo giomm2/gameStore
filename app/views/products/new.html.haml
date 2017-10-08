@@ -1,0 +1,34 @@
+%h1.text-center.text-uppercase Nuevo producto
+.container
+  = form_for @product do |f|
+    .container
+      .col-md-12.text-center.mb-2
+        = f.text_field :name, class: "form-control text-center mb-3 W-50", placeholder: "Nombre del producto"
+      .col-md-12.text-center.mb-2
+        = f.number_field :quantity, class: "form-control text-center mb-3"
+      .col-md-12.text-center.mb-2
+        %p
+          Subir imagen uno:
+          = f.file_field :image_one, class: "form-control text-center mb-3"
+      .col-md-12.text-center.mb-2
+        %p
+          Subir imagen dos:
+          = f.file_field :image_two, class: "form-control text-center mb-3"
+      .col-md-12.text-center.mb-2
+        %p
+          Subir imagen tres:
+          = f.file_field :image_three, class: "form-control text-center mb-3"
+      .col-md-12.text-center.mb-2
+        = f.number_field :price, class: "form-control text-center mb-3", placeholder: "Precio del producto"
+      .col-md-12.text-center.mb-2
+        = f.text_area :description, class: "form-control text-center mb-3", placeholder: "Descripcion del producto"
+      .col-md-12.text-center.mb-2
+        = f.text_field :url_trailer, class: "form-control text-center mb-3", placeholder: "URL del trailer del producto"
+      .col-md-12.text-center.mb-2
+        = f.date_field :out_date, class: "form-control text-center mb-3"
+      .col-md-12.text-center.mb-2
+        = f.select(:console_id, @console.pluck(:console_name, :id), { include_blank: '- Consola -' }, { class: 'form-control text-center w-50' })
+      .col-md-12.text-center.mb-2
+        = f.select(:category_id, @category.pluck(:category_name, :id), { include_blank: '- Categoria -' }, { class: 'form-control text-center' })
+      .col-md-12.text-center.mb-2
+        = f.submit "Create", class: "btn btn-primary"

@@ -1,0 +1,22 @@
+%h1.text-center Bienvenidos a la mejor pagina de video juegos de Costa Rica
+- @products.each do|products|
+  .col-md-3.text-center
+    .card{:style => "width: 30rem;"}
+      = image_tag products.image_one.url(:medium), class: "col-centered"
+      .card-block
+        %h4.card-title
+          = products.name
+        %p.card-text
+          = products.description
+      %ul.list-group.list-group-flush
+        %li.list-group-item
+          = products.price
+        %li.list-group-item
+          = products.out_date
+        %li.list-group-item
+          = products.console.console_name
+      .card-block
+        %a.btn.btn-primary{:href => "#"} Mas informacion
+
+
+

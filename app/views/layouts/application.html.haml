@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Index
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      %nav.navbar.navbar-inverse
+        .container-fluid
+          .navbar-header
+            %h2.text-uppercase.navbar-brand{href: "#"} Games center Costa Rica
+          %ul.nav.navbar-nav
+            %li.active
+              %a{ href: products_path } Todo
+            %li
+              %a{ href: pc_products_path } PC
+            %li
+              %a{ href: play4_products_path } PS4
+            %li
+              %a{ href: xbox_one_products_path } XBOX ONE
+            %li
+              %a{ href: switch_products_path} SWITCH
+            %li
+              %a{ href: new_product_path } NEW
+          %form.navbar-form.navbar-left
+            .form-group
+              %input.form-control{placeholder: "Producto", type: "text"}/
+            %button.btn.btn-default{type: "submit"} Buscar
+
+      %p.notice.text-success.text-center.text-uppercase= notice
+      %p.alert.text-danger.text-center.text-uppercase= alert
+    = yield

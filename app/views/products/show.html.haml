@@ -1,0 +1,12 @@
+.container.text-center
+  %h1 Este es tu nuevo producto
+  .col-md-12
+    = image_tag @product.image_one.url(:medium), class: "col-centered"
+  .col-md-12
+    %p.text-center
+      Stamp number:
+      = @product.price
+  .col-md-12
+    %p.text-center
+      Stamp cuantity:
+      = @product.quantity
